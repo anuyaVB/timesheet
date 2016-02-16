@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--<link type="text/css" rel="stylesheet" href="stylesheet.css">-->
+<title>Timesheet</title>
+</head>
+<body>
+<h3><center>Timesheet</center></h3>
+
+<button id="addCF">Add</button>
+<table class="form-table" id="customFields">
+     <th><label for="Project">Project</label></th>
+     <th align="center"><label for="Description">Description</label></th>
+     <th align="center"><label for="Hours">Hours</label></th>
+     <th align="center"><label for="Status">Status</label></th>
+  <tr valign="top">
+
+    <td><input type="text" class="code" id="Project" name="Project[]" value="" placeholder="Project Name" /> &nbsp;</td>
+
+    <td><input type="text" class="code" id="Description" name="Description[]" value="" placeholder="Description" /> &nbsp;</td>
+
+    <td><select class="code" id="Hours" name="Hours[]"> 
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         <option value="6">6</option>
+         <option value="7">7</option>
+         <option value="8">8</option>
+        </select>&nbsp;</td>
+
+    <td><select class="code" id="Status" name="Status[]" >
+        <option value="Completed">Completed</option>
+        <option value="Pending">Pending</option>
+    	
+        </select> &nbsp;</td>
+        <td><a href="javascript:void(0);" class="remCF">Remove</a></td>
+  
+  </tr>
+  
+</table>
+
+
+<script src="jquery.js"></script>
+
+<script>
+$(document).ready(function() {
+  $("#addCF").click(function() {
+    $("#customFields").append('<tr valign="top"><td><input type="text" class="code" id="Project" name="Project[]" value="" placeholder="Project Name" /> &nbsp;</td><td><input type="text" class="code" id="Description" name="Description[]" value="" placeholder="Description" /> &nbsp;</td><td><select class="code" id="Hours" name="Hours[]"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>&nbsp;</td><td><select class="code" id="Status" name="Status[]" ><option value="Completed">Completed</option><option value="Pending">Pending</option></select> &nbsp;</td><td><a href="javascript:void(0);" class="remCF">Remove</a></td></tr>');
+    /*.on()Attach an event handler function for one or more events to the selected elements.*/
+      $(".remCF").on('click',function(){
+      $(this).parent().parent().remove();
+    });
+  });
+});
+</script>
+
+</body>
+</html>
