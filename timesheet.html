@@ -47,26 +47,38 @@
 
 <script>
 $(document).ready(function() {
-     $(".submitCF").on('click',function(){
-    alert("Details are entered");
-    });
-     $(".remCF").on('click',function(){
-          alret("Are you sure?");
-      $(this).parent().parent().remove();
+   $(".submitCF").on('click',function(){
+    	submitRecord(this);
+    }); 
+      $(".remCF").on('click',function(){
+      	removeRecord(this);
     });
   
   $("#addCF").click(function() {
     $("#customFields").append('<tr valign="top"><td><input type="text" class="code" id="Project" name="Project[]" value="" placeholder="Project Name" /> &nbsp;</td><td><input type="text" class="code" id="Description" name="Description[]" value="" placeholder="Description" /> &nbsp;</td><td><select class="code" id="Hours" name="Hours[]"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>&nbsp;</td><td><select class="code" id="Status" name="Status[]" ><option value="Completed">Completed</option><option value="Pending">Pending</option></select> &nbsp;</td><td><a href="javascript:void(0);" class="submitCF">Submit</a></td><td><a href="javascript:void(0);" class="remCF">Remove</a></td></tr>');
     /*.on()Attach an event handler function for one or more events to the selected elements.*/
-       $(".submitCF").on('click',function(){
-    alert("Details are entered");
+       $(".submitCF").unbind('click');
+	$(".submitCF").on('click',function(){
+    	submitRecord(this);
     });
-     $(".remCF").on('click',function(){
-          alret("Are you sure?");
-      $(this).parent().parent().remove();
+    $(".remCF").unbind('click');
+      $(".remCF").on('click',function(){
+      	removeRecord(this);
     });
+      
   });
 });
+
+function submitRecord(ele){
+	alert("Details are entered");
+}
+
+function removeRecord(ele){
+	var a = confirm("are you sure");
+	if(a){
+		$(ele).parent().parent().remove();
+	}
+}
 </script>
 
 </body>
